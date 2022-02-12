@@ -45,3 +45,7 @@ autocmd FileType html inoremap > <ESC>yiwA></<ESC>pA><ESC>F<i
 autocmd FileType html inoremap ><CR> <ESC>yiwA><CR></<ESC>pA><Up><CR>
 autocmd FileType html set tabstop=2
 autocmd FileType html set shiftwidth=2
+autocmd FileType css set tabstop=2
+autocmd FileType css set shiftwidth=2
+autocmd FileType javascript set tabstop=2
+autocmd FileType javascript set shiftwidth=2
