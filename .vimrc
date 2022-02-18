@@ -18,6 +18,10 @@ syntax on
 set termguicolors
 colorscheme onehalfdark
 
+" Turn off bells
+set noerrorbells
+set vb t_vb=
+
 " Row numbers
 set number
 
