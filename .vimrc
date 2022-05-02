@@ -1,5 +1,6 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
+Plug 'dense-analysis/ale'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
@@ -40,7 +41,7 @@ inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
 " F5 to compile & run
-autocmd FileType c nnoremap <F5> :!clear && gcc -o %:r % && ./%:r<CR>
+autocmd FileType c,asm nnoremap <F5> :!clear && gcc -o %:r % && ./%:r<CR>
 autocmd FileType cpp nnoremap <F5> :!clear && g++ -o %:r % && ./%:r<CR>
 autocmd FileType python nnoremap <F5> :!clear && python3 %<CR>
 
