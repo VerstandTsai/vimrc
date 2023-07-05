@@ -1,15 +1,12 @@
 " vim-plug
 call plug#begin()
-Plug 'preservim/nerdtree'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
-
-" NERDTree
-autocmd VimEnter * NERDTree | wincmd p
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -47,4 +44,6 @@ autocmd FileType python nnoremap <F5> :!clear && python3 %<CR>
 " Use a tab of 2 spaces when doing frontend dev
 autocmd FileType html,css,javascript set tabstop=2
 autocmd FileType html,css,javascript set shiftwidth=2
+
+luafile ~/.config/nvim/config.lua
 
