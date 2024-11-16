@@ -15,10 +15,23 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  nested = true,
-  callback = function()
-    if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
-      vim.cmd "quit"
+    nested = true,
+    callback = function()
+        if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+            vim.cmd "quit"
+        end
     end
-  end
 })
+
+-- Catppuccin theme
+require("catppuccin").setup({
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    transparent_background = true -- disables setting the background color.
+})
+
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"
+
+-- indent-blankline.nvim
+require("ibl").setup()
+
