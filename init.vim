@@ -35,7 +35,6 @@ inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
 
 " Press enter to apply completion
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -53,7 +52,6 @@ autocmd FileType tex nnoremap <F5> :silent !xelatex %<CR>
 autocmd FileType html iunmap '
 autocmd FileType tex iunmap '
 autocmd FileType tex iunmap {<CR>
-autocmd FileType tex iunmap {;<CR>
 autocmd FileType tex inoremap " ``"<left>
 
 " 2-space tab for frontend development
