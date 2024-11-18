@@ -1,8 +1,8 @@
 " vim-plug
 call plug#begin()
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
-Plug 'vim-airline/vim-airline'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -10,10 +10,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
 syntax on
-
-" vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'catppuccin'
 
 " Line numbers
 set number

@@ -32,6 +32,9 @@ require("catppuccin").setup({
 -- setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
 
+-- lualine.nvim
+require('lualine').setup()
+
 -- indent-blankline.nvim
 require("ibl").setup()
 
