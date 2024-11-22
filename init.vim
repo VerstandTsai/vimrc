@@ -9,8 +9,6 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
-syntax on
-
 " Line numbers
 set number
 
@@ -24,13 +22,26 @@ set shiftwidth=4
 " Convert tab to spaces
 set expandtab
 
-" Closed brackets
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
+" Auto-closing brackets
+let s:brackets = ['""', "''", "()", "[]", "{}"]
+
+for pair in s:brackets
+    execute "inoremap " . pair[0] . " " . pair . "<left>"
+endfor
+
 inoremap {<CR> {<CR>}<ESC>O
+
+" Remove pair of empty brackets
+function! RemoveBracketPair()
+    for pair in s:brackets
+        if getline('.')[col('.')-2] == pair[0] && getline('.')[col('.')-1] == pair[1]
+            return "\<right>\<bs>\<bs>"
+        endif
+    endfor
+    return "\<bs>"
+endfunction
+
+inoremap <expr> <bs> RemoveBracketPair()
 
 " Press enter to apply completion
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -44,11 +55,12 @@ autocmd FileType cpp nnoremap <F5> :!clear && g++ -o %:r % && %:r<CR>
 autocmd FileType python nnoremap <F5> :!clear && python3 %<CR>
 autocmd FileType tex nnoremap <F5> :silent !xelatex %<CR>
 
-" Mappings and unmappings for non-programming languages
+" Maps and unmaps for non-programming languages
 autocmd FileType html iunmap '
 autocmd FileType tex iunmap '
 autocmd FileType tex iunmap {<CR>
 autocmd FileType tex inoremap " ``"<left>
+autocmd FileType tex inoremap $ $$<left>
 
 " 2-space tab for frontend development
 autocmd FileType html,css,javascript set tabstop=2
