@@ -47,7 +47,7 @@ inoremap <expr> <bs> RemoveBracketPair()
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " Restore cursor shape after leaving Neovim
-au VimLeave * set guicursor= | call chansend(v:stderr, "\x1b[ q")
+autocmd VimLeave * set guicursor= | call chansend(v:stderr, "\x1b[ q")
 
 " F5 to compile & run
 autocmd FileType c,asm nnoremap <F5> :!clear && gcc -o %:r % && %:r<CR>
