@@ -12,6 +12,9 @@ call plug#end()
 " Line numbers
 set number
 
+" Disable the tildes (~) at the beginning of blank lines
+set fillchars=eob:\ 
+
 " No line wrap
 set nowrap
 
